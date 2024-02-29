@@ -14,6 +14,7 @@ class Phone:
     def call(self, phone_number):
         print(f'Звоню по номеру {phone_number}! Тип связи - {self.line_type}.')
 
+
 class MobilePhone(Phone):
     line_type = 'беспроводной'
     battery_type = 'Li-ion'
@@ -30,4 +31,19 @@ class MobilePhone(Phone):
     # использовать напрямую в базовом классе и его наследниках.
     def get_info(self):
         print(f'Серийный №: {self._serial_number}, тип: {self.network_type}')
-        
+
+
+mobile_phone_1 = Phone('дисковый')
+mobile_phone_2 = MobilePhone('сенсорный', 'LTE')
+
+# Обращение через метод.
+mobile_phone_2.get_info()
+# Обращение напрямую.
+print(mobile_phone_1._serial_number)
+print(mobile_phone_2._serial_number)
+
+
+# Выведется:
+# Серийный №: 140479396726016, тип: LTE
+# 140216483239392
+# 140479396726016
